@@ -1,30 +1,30 @@
 pipeline {
-  agent any
-
-  stages {
-    stage('Run Postman (Newman)') {
-      agent {
-        docker {
-          image 'postman/newman:alpine'
-          args '-u 1000:1000'   
+    agent {
+    docker{
+        image 'postman/newman:latest'
+        args '--entrypoint='
+           }
+    }
+    triggers {
+        upstream 'cypress-jenkins'
+    }
+    stages {
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install -g newman'
+            }
         }
-      }
-      steps {
-            sh '''
-            mkdir -p test-results
-            chmod +x batchs/test_run.sh
-          ./batchs/test_run.sh
-        '''
-}
 
+        stage('Run API Tests') {
+            steps {
+                   sh './batchs/test_run.sh'
+            }
+        }
     }
-  }
 
-  post {
-    always {
-      junit testResults: 'test-results/*.xml', allowEmptyResults: true
-      archiveArtifacts artifacts: 'test-results/*.xml,reports/*.html',
-                       fingerprint: true, allowEmptyArchive: true
+    post {
+        always {
+            junit 'results/newman-report.xml'
+        }
     }
-  }
 }
