@@ -11,16 +11,16 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'npm install -g newman'
+                sh ' npm install -g newman'
             }
         }
 
         stage('Run API Tests') {
             steps {
+                    sh 'chmod +x batchs/test_run.sh'
                    sh './batchs/test_run.sh'
             }
         }
-    }
 
     post {
         always {
