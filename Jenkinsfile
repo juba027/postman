@@ -11,12 +11,6 @@ pipeline {
     }
 
     stages {
-        stage('Install dependencies') {
-            steps {
-                sh 'npm install -g newman'
-            }
-        }
-
         stage('Run API Tests') {
             steps {
                 sh 'chmod +x batchs/test_run.sh'
@@ -27,7 +21,7 @@ pipeline {
 
     post {
         always {
-            junit 'test-results/*.xml'   // <-- adapte si ton batch sort ailleurs
+            junit 'test-results/*.xml'
             archiveArtifacts artifacts: 'test-results/*.xml', fingerprint: true, allowEmptyArchive: true
         }
     }
