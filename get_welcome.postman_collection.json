@@ -1,0 +1,19 @@
+{
+	"info": {
+		"_postman_id": "b08fc257-959a-4f72-8834-a1790dcc71d9",
+		"name": "get_welcome",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40925101",
+		"_collection_link": "https://juba11.postman.co/workspace/Eya_serveur~399cf0e1-aa51-4e54-bf22-7b50bab90a97/collection/40925101-b08fc257-959a-4f72-8834-a1790dcc71d9?action=share&source=collection_link&creator=40925101"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
