@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="get_welcome" tests="1" time="0.000">
+  <testsuite name="New Request" id="10395884-4518-4a79-94cd-9aa9c3672745" timestamp="2025-08-28T14:40:36.982Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: runtime:extensions~request: request url is empty
+    at Requester.request (/usr/local/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/requester.js:421:26)
+    at /usr/local/lib/node_modules/newman/node_modules/postman-runtime/lib/runner/extensions/http-request.command.js:156:37
+    at Function.create (/usr/local/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/requester.js:508:16)
+    at RequesterPool.create (/usr/local/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/requester-pool.js:67:22)
+    at /usr/local/lib/node_modules/newman/node_modules/postman-runtime/lib/runner/extensions/http-request.command.js:105:32
+    at /usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:252:13
+    at wrapper (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:273:20)
+    at replenish (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:443:29)
+    at /usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:453:13
+    at eachOfLimit (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:479:36)
+    at awaitable (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:212:32)
+    at eachOfSeries (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:815:16)
+    at awaitable (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:212:32)
+    at _asyncMap (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:245:16)
+    at mapSeries (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:839:16)
+    at awaitable (/usr/local/lib/node_modules/newman/node_modules/async/dist/async.js:212:32)
+
+---
+]]></system-err>
+  </testsuite>
+</testsuites>

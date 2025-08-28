@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="get_home" tests="1" time="0.170">
+  <testsuite name="New Request" id="65f2d683-7786-475c-9b77-26e3b6b68a62" timestamp="2025-08-28T14:40:35.693Z" tests="1" failures="0" errors="0" time="0.170">
+    <testcase name="Status code is 200" time="0.170" classname="GetHome"/>
+  </testsuite>
+</testsuites>

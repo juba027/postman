@@ -1,30 +1,23 @@
 pipeline {
-  agent any
+  agent {
+    docker { image 'docker:cli' args '-v /var/run/docker.sock:/var/run/docker.sock' }
+  }
 
   stages {
-    stage('Run Postman (Newman)') {
-      agent {
-        docker {
-          image 'postman/newman:alpine'
-          args '-u 1000:1000'   
-        }
-      }
+    stage('Run Postman Tests') {
       steps {
-            sh '''
-    mkdir -p test-results
-    newman run POSTMAN/get_home.postman_collection.json --reporters cli,junit --reporter-junit-export test-results/get_home.xml
-    newman run POSTMAN/get_welcome.postman_collection.json --reporters cli,junit --reporter-junit-export test-results/get_welcome.xml
-  '''
-}
-
+        sh '''
+          chmod +x batchs/test_run.sh
+          ./batchs/test_run.sh
+        '''
+      }
     }
   }
 
   post {
     always {
       junit testResults: 'test-results/*.xml', allowEmptyResults: true
-      archiveArtifacts artifacts: 'test-results/*.xml,reports/*.html',
-                       fingerprint: true, allowEmptyArchive: true
+      archiveArtifacts artifacts: 'test-results/*.xml', fingerprint: true, allowEmptyArchive: true
     }
   }
 }
